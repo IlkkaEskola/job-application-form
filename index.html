@@ -9,22 +9,40 @@
 <body>
     <div class="container">
         <h1>Job Application Form</h1>
-        <form>
-            <label id="name-label">Full Name:
-                <input type="text" id="name"/>
-            </label>
-            <label id="email-label">Email:
-                <input type="email" id="email"/>
-            </label>
-            <label for="position-label">Position:
-                <select id="position">
-                    <option>Designer</option>
-                    <option>Artist</option>
-                    <option>Programmer</option>
-                    <option>Sound Engineer</option>
-                    <option>Producer</option>
-                </select>
-            </label>
+        <form method="post" action="/submit" enctype="multipart/form-data">
+            <label for="name"><strong>Full Name:</strong></label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required />
+            
+            <label for="email"><strong>Email:</strong></label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required />
+            
+            <label for="position"><strong>Position:</strong></label>
+            <select id="position" name="position" required>
+                <option value="" disabled selected>Select a position</option>
+                <option>Designer</option>
+                <option>Artist</option>
+                <option>Programmer</option>
+                <option>Sound Engineer</option>
+                <option>Producer</option>
+            </select>
+            
+            <fieldset class="radio-group">
+                <legend><strong>Availability</strong></legend>
+                <label for="full-time">
+                    <input id="full-time" type="radio" name="availability" value="full-time" checked/>Full Time
+                </label>
+                <label for="part-time">
+                    <input id="part-time" type="radio" name="availability" value="part-time"/>Part Time
+                </label>
+            </fieldset>
+
+            <label for="message"><strong>Motivation Letter:</strong></label>
+            <textarea id="message" name="message" rows="10" cols="100" placeholder="Write your motivation" required></textarea>
+            
+            <label for="resume"><strong>Upload Resume:</strong></label>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx" />
+
+            <button type="submit" id="submit" name="submit">Submit Application</button>
         </form>
     </div>
 </body>
